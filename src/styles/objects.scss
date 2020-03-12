@@ -1,0 +1,531 @@
+body {
+  margin: auto !important;
+  background: #fff;
+}
+
+.main-menu {
+  width: 100%;
+  background-color: #f6f6f6;
+  padding: 20px 50px;
+
+  span {
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include transition(all .25s);
+    color: #444444;
+
+    &:hover {
+      color: lighten(#444444, 20%);
+    }
+  }
+}
+
+.main-image-container {
+  //position: relative;
+  //overflow: hidden;
+  ////height: 100vh;
+  //width: 100%;
+  //min-height: 400px;
+  //height: 400px;
+  box-sizing: border-box !important;
+  background-size: cover !important;
+  height: 45.89vw !important;
+  max-height: 642px !important;
+  min-height: 438px !important;
+  position: relative !important;
+  background-image: url("../../static/images/view.jpg");
+  background-position: center center !important;
+
+  .layout-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+
+    .layout-holder {
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .title-wrapper {
+        font-weight: 600;
+        line-height: 1.08;
+        font-size: 55px;
+        max-width: 700px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, .6);
+        color: #ffffff;
+
+        @media screen and (min-width: 1200px) {
+          max-width: 1000px;
+          font-size: 80px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.filters-container {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 40px;
+  padding: 0 50px;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 6px -2px rgba(0, 0, 0, 0.5);
+
+  .filters-holder {
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-end;
+
+    .filter-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border: 1px solid rgb(228, 228, 228);
+        outline: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+
+        @media screen and (max-width: 616px) {
+          margin-bottom: 10px;
+          margin-right: auto;
+        }
+      }
+
+      select {
+        border-radius: 12px;
+        padding: 5px;
+        border: 1px solid rgb(228, 228, 228);
+        outline: none;
+        width: 100px;
+        margin-right: 10px;
+
+        @media screen and (max-width: 616px) {
+          margin-bottom: 10px;
+          margin-right: auto;
+          width: 100%;
+        }
+      }
+
+      .slider {
+        -webkit-appearance: none;
+        width: 65%;
+        height: 5px;
+        background: #476a7e;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity .2s;
+        border-radius: 12px;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          background: white;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+
+        @media screen and (max-width: 616px) {
+          margin-bottom: 10px;
+          margin-right: auto;
+          width: 100%;
+        }
+      }
+
+
+      label {
+        width: 100%;
+        padding: 0 10px;
+        font-family: $primary-font;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    @media screen and (max-width: 616px){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: initial;
+    }
+  }
+
+  @media screen and (max-width: 616px) {
+    justify-content: center;
+  }
+}
+
+.all-hotels-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 35px;
+  width: 100%;
+  //justify-content: center;
+
+  .hotel-holder {
+    margin-bottom: 40px;
+    transition: all 0.25s;
+    cursor: pointer;
+    width: calc(100% / 4);
+    padding: 0 15px;
+    //margin-right: 15px;
+
+    .hotel-holder_image-holder {
+      overflow: hidden;
+      border-radius: 4px;
+      height: 180px;
+      width: 100%;
+
+      .hotel-holder_image {
+        transition: all 0.25s ease 0s;
+        border-radius: 4px;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scale(1);
+        background-size: cover;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    .hotel-holder_title{
+      font-size: 18px;
+      width: 100%;
+      color: #4F4F4F;
+      font-weight: bold;
+      text-transform: capitalize;
+      margin: 4px 0 5px;
+      max-height: 20px;
+    }
+
+    .hotel-holder_type-rating {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+
+      span {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #ADADAD;
+        line-height: .8;
+      }
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    $hotel-sizes:
+      1220px 3,
+      950px 2,
+      616px 1;
+
+    @each $maxWidth, $slice in $hotel-sizes {
+      @media screen and (max-width: $maxWidth) {
+        width: calc((100% / #{$slice}));
+      }
+    }
+  }
+}
+
+.hotel-info-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px;
+
+  .hotel-info-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column-reverse;
+    }
+
+    .hotel-images-holder {
+      width: 55%;
+
+      @media screen and (max-width: 900px) {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+
+    .hotel-info-holder {
+      width: calc(45% - 30px);
+
+      @media screen and (max-width: 900px) {
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 44px;
+        text-transform: uppercase;
+        color: #000;
+        margin-bottom: 15px;
+
+        @media screen and (max-width: 500px) {
+          font-size: 34px;
+        }
+      }
+
+      h4 {
+        font-size: 20px;
+        color: #4F4F4F;
+        margin-bottom: 4px;
+
+        @media screen and (max-width: 500px) {
+          font-size: 18px;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        color: #4F4F4F;
+        line-height: 1.5;
+
+        @media screen and (max-width: 500px) {
+          font-size: 14px;
+        }
+      }
+
+      h3, h4, p {
+        width: 100%;
+      }
+
+
+      .hotel-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-right: 18px;
+        margin-bottom: 4px;
+
+        img {
+          height: 16px;
+          margin-right: 5px;
+        }
+
+        span {
+          font-size: 14px;
+          color: #2d9cdb;
+
+        }
+      }
+
+      .hotel-info-stars {
+        margin-bottom: 16px;
+      }
+      .hotel-info-price {
+        margin-bottom: 50px;
+      }
+
+      .review-data-information-holder {
+        width: 100%;
+
+        span {
+          font-size: 26px;
+          border-bottom: 1px solid grey;
+        }
+      }
+    }
+
+  }
+
+  .review-data-information-holder {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 30px;
+    flex-wrap: wrap;
+
+    span {
+      width: 60%;
+      border-bottom: 1px solid #BDBDBD;
+      line-height: normal;
+      font-weight: normal;
+      font-size: 24px;
+
+      @media screen and (max-width: 680px) {
+        width: 100%;
+      }
+    }
+
+    .user-review-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 60%;
+      padding: 22px 0;
+
+      .image-holder {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url("../../static/images/lazyBackground.jpg");
+
+        @media screen and (max-width: 500px) {
+          display: none;
+        }
+      }
+
+      .user-review-holder {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 20px;
+
+
+        .user-review-wrapper {
+          display: flex;
+          align-items: center;
+
+          h4 {
+            margin-right: 20px;
+            font-size: 18px;
+            color: #4F4F4F;
+            font-weight: 700;
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      h5 {
+        width: 100%;
+        font-size: 14px;
+        color: #4F4F4F;
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      margin-left: initial;
+    }
+  }
+}
+
+.error-message {
+  display: none;
+  width: 100%;
+  padding: 0 50px;
+  margin-bottom: 70px;
+  text-align: center;
+  color: $error_color;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $primary-font;
+}
+
+
+// image slider
+.slideshow-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin: auto;
+
+  @media screen and (max-width: 900px) {
+    height: 300px;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
